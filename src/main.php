@@ -11,7 +11,6 @@ require 'vendor/autoload.php';
 use Michelf\MarkdownExtra;
 
 // config
-//$siteBaseDir = '/home/jirsad/code/qrdev.fr/docs/';
 $siteBaseDir = '/';
 $dataDir = 'data/';
 $outDir = 'docs/';
