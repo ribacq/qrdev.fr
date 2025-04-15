@@ -129,7 +129,7 @@ section {
 h1, h2, h3, h4, h5, h6,
 #header-title,
 hr, a,
-li::marker {
+::marker {
 	color: var(--accent);
 }
 
@@ -141,8 +141,13 @@ p {
 	text-align: justify;
 }
 
+ul {
+	padding-inline-start: 1em;
+}
+
 ul li::marker {
 	content: '- ';
+	font-family: monospace;
 	font-weight: bold;
 }
 
@@ -151,9 +156,20 @@ pre {
 	background: var(--bg);
 	font-size: 14px;
 	width: fit-content;
+	white-space: pre-wrap;
 }
 
-code::before {
+code {
+	background: var(--bg);
+	font-size: 14px;
+	padding: 2px;
+}
+
+pre code {
+	padding: 0;
+}
+
+pre code::before {
 	content: attr(class);
 	display: block;
 	font-size: 12px;
@@ -170,4 +186,8 @@ a {
 a:hover {
 	text-decoration: underline;
 	background: var(--bg);
+}
+
+summary {
+	cursor: pointer;
 }

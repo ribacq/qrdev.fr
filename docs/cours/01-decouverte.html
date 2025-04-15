@@ -43,8 +43,266 @@
 			<section>
 <h1>cours 01 - découverte</h1>
 
-<pre><code class="html">&lt;h1&gt;titre&lt;/h1&gt;
+<p>Pour tester et jouer avec le code directement dans votre navigateur, il est possible d'utiliser <a href="https://codepen.io/pen/">Codepen</a>.</p>
+
+<h2>notions</h2>
+
+<details>
+
+<summary>HTML : HyperText Markup Language</summary>
+
+<ul>
+<li>balise HTML
+
+<ul>
+<li>en paire</li>
+<li>seule (autofermante)</li>
+<li>nom</li>
+<li>contenu</li>
+</ul></li>
+<li>espaces dans le code et espaces affichés
+
+<ul>
+<li>balise <code>&lt;br /&gt;</code></li>
+</ul></li>
+<li>liens <code>&lt;a&gt;</code></li>
+<li>notion de inline vs. block
+
+<ul>
+<li><code>&lt;span&gt;</code> et <code>&lt;div&gt;</code></li>
+</ul></li>
+<li>attributs
+
+<ul>
+<li><code>id</code> et <code>class</code></li>
+</ul></li>
+</ul>
+
+</details>
+
+<details>
+
+<summary>CSS : Cascading Style Sheet</summary>
+
+<ul>
+<li>sélecteur CSS
+
+<ul>
+<li>balise</li>
+<li>class avec <code>.</code></li>
+<li>id avec <code>#</code></li>
+</ul></li>
+<li>color</li>
+<li>background-color</li>
+<li>font-family</li>
+<li>font-size</li>
+<li>width, height</li>
+<li>margin, border, padding</li>
+</ul>
+
+</details>
+
+<h2>HTML</h2>
+
+<h3>les balises</h3>
+
+<p>HTML est le langage avec lequel on écrit la <em>structure</em> et le <em>contenu</em> d'une page web. Il précise l'ordre des éléments, lesquels sont à l'intérieur les uns des autres et comment.
+Il ne précise rien de l'affichage. Un fichier <code>.html</code> seul sera par défaut affiché en noir sur fond blanc sans aucune décoration.</p>
+
+<p>Le HTML s'écrit dans ce que l'on nomme des balises. Une balise peut fonctionner par paire, avec une ouvrante et une fermante, le contenu entre les deux.</p>
+
+<div class="two-columns">
+<div>
+
+<pre><code class="html">&lt;h1&gt;titre de niveau 1&lt;/h1&gt;
+
+&lt;p&gt;
+Un paragraphe.
+
+Une ligne seule en dans le code, mais pas de retour à la ligne à l'affichage.
+&lt;/p&gt;
 </code></pre>
+
+</div>
+<div>
+<h1>titre de niveau 1</h1>
+
+<p>
+Un paragraphe.
+
+Une ligne seule dans le code, mais pas de retour à la ligne à l'affichage.
+</p>
+</div>
+</div>
+
+<p>Les titres peuvent avoir jusqu'à 6 niveaux.
+Le titre le plus important est <code>&lt;h1&gt;titre de niveau 1&lt;/h1&gt;</code>, un <code>&lt;h2&gt;titre de niveau 2&lt;/h2&gt;</code> est un sous-titre, puis on a <code>&lt;h3&gt;</code>, etc., jusqu'à <code>&lt;h6&gt;</code> pour le moindre.</p>
+
+<p>Certaines balises HTML s'utilisent seules, c'est-à-dire sans contenu entre la balise ouvrante et la balise fermante, mais avec une balise unique. C'est le cas de <code>&lt;br /&gt;</code> qui permet d'insérer un retour à la ligne dans un paragraphe.</p>
+
+<pre><code class="html">&lt;p&gt;
+Notez le p seul entre les chevrons pour la balise ouvrante.
+Notez le /p entre les chevrons pour la balise fermante.
+&lt;/p&gt;
+</code></pre>
+
+<p>Le positionnement du <code>/</code> est essentiel dans la balise fermante d'une paire.</p>
+
+<div class="two-columns">
+<div>
+
+<pre><code class="html">&lt;p&gt;
+une ligne&lt;br/&gt;une autre ligne.
+&lt;/p&gt;
+</code></pre>
+
+</div>
+<div>
+<p>
+une ligne<br/>une autre ligne
+</p>
+</div>
+</div>
+
+<p>Dans <code>&lt;br/&gt;</code>, le <code>/</code> est à la fin !</p>
+
+<h3>liens</h3>
+
+<p>Un lien vers une autre page s'écrit avec la balise <code>&lt;a&gt;</code>. Le contenu, entre ouvrante et fermante, est le texte affiché. L'URL doit être précisée dans ce qu'on appelle un <em>attribut</em>. L'attribut s'appelle ici <code>href</code>, on le précise dans la balise ouvrante avec sa valeur juste après un signe <code>=</code> et entourée de guillemets <code>"</code>. Concrètement :</p>
+
+<div class="two-columns">
+<div>
+
+<pre><code class="html">&lt;a href="https://qrdev.fr/"&gt;mon lien&lt;/a&gt;
+</code></pre>
+
+</div>
+<div>
+<a href="https://qrdev.fr/">mon lien</a>
+</div>
+</div>
+
+<h3>inline vs. block</h3>
+
+<p>De même que certaines balises vont par paires et que d'autres sont autofermantes, une autre distinction existe : la notion d'inline vs. block. Cela va principalement impacter l'affichage.</p>
+
+<p>Une balise <strong>inline</strong>, ou « en ligne » en français, va se placer <em>à côté</em> des autres balises inline. C'est le cas des liens <code>&lt;a&gt;</code>, qui sont dans le texte, sans retour à la ligne systématique.</p>
+
+<p>Une balise <strong>block</strong> va se placer <em>en dessous</em> de la balise précédente, que la précédente soit inline ou block d'ailleurs. C'est le cas des titres <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> ou des paragraphes <code>&lt;p&gt;</code>, qui créent forcément des retours à la ligne avant et après eux.</p>
+
+<p><strong>Rigoureusement</strong>, une balise inline doit toujours se trouver à l'intérieur d'un block. Par exemple, un lien dans un paragraphe.</p>
+
+<p>Un block peut se trouver à l'intérieur d'un autre block, mais un block ne doit pas être dans une balise inline. On ne met pas un paragraphe dans un lien.</p>
+
+<h3>attributs <code>id</code> et <code>class</code></h3>
+
+<p>Outre l'attribut <code>href</code> précisant l'URL d'un lien, il en existe de nombreux autres, parmi lesquels <code>id</code> et <code>class</code>. Ces deux attributs peuvent se mettre sur n'importe quelle balise. Ils servent à donner un nom ou un identifiant à une balise donnée. À l'affichage cela ne change rien.</p>
+
+<p>Points essentiels :</p>
+
+<ul>
+<li>un <code>id</code> ou une <code>class</code> s'écrit en minuscule, sans espaces, accents ou caractères spéciaux</li>
+<li>un <code>id</code> doit être unique dans la page : toutes les balises qui en ont un doivent en avoir un différent</li>
+<li>pour les <code>class</code>, pas de restrictions de nombre : plusieurs balises peuvent avoir la même <code>class</code>, et une seule balise peut même avoir plusieurs <code>class</code>.</li>
+</ul>
+
+<div class="two-columns">
+<div>
+
+<pre><code class="html">&lt;h1 id="titre-important" class="souligne"&gt;super titre incroyable&lt;/h1&gt;
+
+&lt;h2 id="titre-bateau" class="souligne rouge"&gt;sous-titre bateau&lt;/h2&gt;
+
+&lt;p&gt;
+    voici un lien :
+    &lt;a href="https://fr.wikipedia.org/" class="rouge"&gt;wikipedia&lt;/a&gt;
+&lt;/p&gt;
+</code></pre>
+
+</div>
+<div>
+<h1 id="titre-important" class="souligne" style="text-decoration: underline">super titre incroyable</h1>
+
+<h2 id="titre-bateau" class="souligne rouge" style="text-decoration: underline; color: red">sous-titre bateau</h2>
+
+<p>
+    voici un lien :
+    <a href="https://fr.wikipedia.org/" class="rouge" style="color: red">wikipedia</a>
+</p>
+</div>
+</div>
+
+<h2>CSS</h2>
+
+<p>Pour mettre en forme son site, on utilise le langage CSS. La manière de l'écrire (sa syntaxe) se compose des éléments suivants :</p>
+
+<div class="two-columns">
+<div>
+
+<pre><code class="html">&lt;a href="https://vibes.lgbt/"&gt;Vibes&lt;/a&gt;
+</code></pre>
+
+<pre><code class="css">/* ceci est un commentaire, délimité par slash-étoile et étoile-slash.
+ * il aide à la compréhension du code, mais n'est pas lu par la machine.
+ * pratique pour prendre des notes !
+ *
+ * 'a' est le nom de la balise des liens.
+ *
+ * ce qui suit entre les accolades {} est donc appliqué à tous les liens de la page (un seul dans cet exemple).
+ *
+ * ensuite on écrit des lignes sous la forme
+ *
+ * propriété: valeur;
+ */
+a {
+    color: white;
+    background-color: black;
+}
+</code></pre>
+
+</div>
+<div>
+<a href="https://vibes.lgbt/" style="color:white; background-color:black">Vibes</a>
+</div>
+</div>
+
+<p>Comme <em>sélecteur</em> CSS, on peut utiliser notamment :</p>
+
+<ul>
+<li>un nom de balise, comme <code>a</code></li>
+<li>un <code>id</code> précédé par un dièse, comme <code>#titre-important</code> ou <code>#titre-bateau</code> de l'exemple plus haut</li>
+<li>une <code>class</code> précédée par un point, comme <code>.rouge</code></li>
+</ul>
+
+<pre><code class="css">a {
+    color: white; /* couleur du texte */
+    background-color: black; /* couleur de fond */
+}
+
+#titre-important {
+    font-size: 36px; /* taille de police en pixels */
+}
+
+.rouge {
+    color: red;
+}
+</code></pre>
+
+<p>Parmi les autres propriétés CSS usuelles on peut noter :</p>
+
+<pre><code class="css">#mon-block {
+    width: 50%; /* largeur du block en % de la page */
+    height: 300px; /* hauteur du block en pixels */
+}
+
+h1 {
+    font-family: monospace; /* les titres niveau 1 en police à largeur fixe */
+}
+</code></pre>
+
+<p>Les marges intérieures, extérieures, et la bordures se définissent respectivement par <code>padding</code>, <code>margin</code>, et <code>border</code>.</p>
+
+<p><img src="/assets/img/css-box-model.png" alt="CSS box model" /></p>
 			</section>
 			<footer>
 				<ul>
